@@ -6,6 +6,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Geek {
@@ -18,7 +21,10 @@ public class Geek {
 	private String name;
 	
 	private char sexe;
-	
-	private ArrayList<String> interets;
+
+	@JoinTable(name = "GEEK_INTERET",
+			joinColumns = @JoinColumn(name="ID_GEEK"),
+			inverseJoinColumns = @JoinColumn(name = "LIBELLE"))
+	private ArrayList<Interet> interets;
 	
 }
