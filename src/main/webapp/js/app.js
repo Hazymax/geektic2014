@@ -27,6 +27,9 @@ app.controller('SearchCtrl',function($scope,$http) {
     };
     
     $scope.initInterets();
+    for(var i =0;i<1;i++){
+    	console.log($scope.interets[i])
+    }
     $scope.initGeeks();
 	
 });
