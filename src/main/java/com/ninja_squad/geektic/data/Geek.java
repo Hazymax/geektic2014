@@ -1,4 +1,4 @@
-package com.ninja_squad.geektic.service;
+package com.ninja_squad.geektic.data;
 
 import java.util.Set;
 

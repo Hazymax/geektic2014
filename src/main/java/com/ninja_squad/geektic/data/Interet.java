@@ -1,4 +1,4 @@
-package com.ninja_squad.geektic.service;
+package com.ninja_squad.geektic.data;
 
 import java.util.Set;
 
@@ -22,5 +22,6 @@ public class Interet {
 	
 	@ManyToMany(mappedBy = "interets")
 	private Set<Geek> geeks;
+	
 	
 }

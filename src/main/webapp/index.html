@@ -22,7 +22,7 @@
 				<label> Interêts </label>
 			</div>
             <div class="form-group>">
-                <select class="form-control col-md-6" ng-model="newGeek.interets" ng-options="Interets" />
+                <select class="form-control col-md-6" ng-model="interets" ng-options="interet for interet in priorities" />
             </div>
             <input type="submit" class="btn btn-primary" ng-click="searchGeek()" value="Submit" />
         </form>

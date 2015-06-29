@@ -1,7 +1,11 @@
 package com.ninja_squad.geektic.DAO;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
-import com.ninja_squad.geektic.service.Interet;
+import javax.persistence.TypedQuery;
+
+import com.ninja_squad.geektic.data.Interet;
 
 public class InteretDAO {
 	
@@ -17,6 +21,12 @@ public class InteretDAO {
 	
 	public void create(Interet interet){
 		entityManager.persist(interet);
+	}
+
+	public List<Interet> findAll() {
+    	String jpql = "select v from Interet as v";
+    	TypedQuery<Interet> query = entityManager.createQuery(jpql, Interet.class);
+    	return query.getResultList();
 	}
 
 }

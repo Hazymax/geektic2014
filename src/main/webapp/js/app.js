@@ -9,34 +9,25 @@ app.controller('HelloCtrl', function($scope, $http) {
 app.controller('SearchCtrl',function($scope,$http) {
 	
     $scope.interets = ['...'];
+    
+    $scope.geeks = ['...'];
+    
+    $scope.initGeeks = function() {
+    	$http.get('search/initGeeks')
+    	.then(function(response){
+    		$scope.geeks = response.data
+    	});
+    };
 	
     $scope.initInterets = function(){
-        $http.get('search/interets')
+        $http.get('search/initInterets')
             .then(function(response){
             $scope.interets = response.data;
         });
     };
     
-    $scope.initNewGeek = function(){
-    	$scope.newGeek = {
-    			name: '',
-    			sexe: '',
-    			interets: null
-    	}
-    }
     
-    $scope.addInteret = function(){
-    	$http.post('search/add',$scope.interets)
-    	.then(function(response){
-    		$scope.newGeek = {
-    				interets: response.data;
-    		});
-    	});
-    };
-    
-    $scope.searchGeek = function(){
-    	
-    });
-    
+    $scope.initInterets();
+    $scope.initGeeks();
 	
-}
+});
