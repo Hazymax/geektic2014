@@ -16,10 +16,6 @@ public class GeekDAO {
 	@PersistenceContext
 	private EntityManager entityManager;
 	
-	public GeekDAO(EntityManager em){
-		this.entityManager = em;
-	}
-	
 	public Geek findById(long id){
 		return entityManager.find(Geek.class, id);
 	}

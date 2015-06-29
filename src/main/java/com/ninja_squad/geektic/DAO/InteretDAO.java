@@ -16,9 +16,6 @@ public class InteretDAO {
 	@PersistenceContext
 	private EntityManager entityManager;
 	
-	public InteretDAO(EntityManager em){
-		this.entityManager = em;
-	}
 	
 	public Interet findById(long id){
 		return entityManager.find(Interet.class, id);
