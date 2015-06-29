@@ -4,8 +4,28 @@
     <head>
         <title>Geektic</title>
     </head>
-    <body ng-controller="HelloCtrl">
-        <h1>{{ helloMessage.message }}</h1>
+    <body>
+    	
+    	<form ng-controller="HelloCtrl">
+        	<h1>{{ helloMessage.message }}</h1>
+        </form>
+        
+        <form ng-controller="SearchCtrl">
+        	<div>
+	        	<select name = "Sexe" size = "1" ng-model="newGeek.sexe">
+	        		<option> Homme
+	        		<option> Femme
+	        	</select>
+        	</div>
+        
+			<div>
+				<label> Interêts </label>
+			</div>
+            <div class="form-group>">
+                <select class="form-control col-md-6" ng-model="newGeek.interets" ng-options="Interets" />
+            </div>
+            <input type="submit" class="btn btn-primary" ng-click="searchGeek()" value="Submit" />
+        </form>
 
         <script src="/js/angular.js"></script>
         <script src="/js/angular-route.js"></script>
