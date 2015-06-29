@@ -3,12 +3,17 @@ package com.ninja_squad.geektic.DAO;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
+import org.springframework.stereotype.Repository;
 
 import com.ninja_squad.geektic.data.Interet;
 
+@Repository
 public class InteretDAO {
 	
+	@PersistenceContext
 	private EntityManager entityManager;
 	
 	public InteretDAO(EntityManager em){

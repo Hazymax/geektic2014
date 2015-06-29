@@ -3,10 +3,12 @@ package com.ninja_squad.geektic.controleur;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ninja_squad.geektic.DAO.InteretDAO;
 import com.ninja_squad.geektic.data.Interet;
 
+@Service
 public class InteretService {
 
 	private InteretDAO interetDAO;
