@@ -1,6 +1,6 @@
 package com.ninja_squad.geektic.service;
 
-import java.util.ArrayList;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,9 +22,10 @@ public class Geek {
 	
 	private char sexe;
 
+	@ManyToMany
 	@JoinTable(name = "GEEK_INTERET",
 			joinColumns = @JoinColumn(name="ID_GEEK"),
 			inverseJoinColumns = @JoinColumn(name = "LIBELLE"))
-	private ArrayList<Interet> interets;
+	private Set<Interet> interets;
 	
 }
