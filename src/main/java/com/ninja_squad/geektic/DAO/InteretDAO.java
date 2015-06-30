@@ -29,7 +29,7 @@ public class InteretDAO {
     	String jpql = "select v from Interet as v";
     	TypedQuery<Interet> query = entityManager.createQuery(jpql, Interet.class);
     	List<Interet> liste =query.getResultList() ;
-    	System.out.println("\n \n \n LISTE<Interet>.SIZE = " + liste.size() + "\n \n \n");
+    	//System.out.println("\n \n \n LISTE<Interet>.SIZE = " + liste.size() + "\n \n \n");
     	return liste;
 	}
 

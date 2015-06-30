@@ -12,7 +12,7 @@
         
         <form ng-controller="SearchCtrl">
         	<div>
-	        	<select name = "Sexe" size = "1" ng-model="newGeek.sexe">
+	        	<select name = "Sexe" size = "1" ng-model="myGeek.sexe">
 	        		<option> Homme
 	        		<option> Femme
 	        	</select>
@@ -22,9 +22,28 @@
 				<label> Interêts </label>
 			</div>
             <div class="form-group>">
-                <select class="form-control col-md-6" ng-model="interets" ng-options="interet as interet.libelle for interet in interets" />
+                <select class="form-control col-md-6" ng-model="mygeek.interets" ng-options="interet as interet.libelle for interet in interets" />
             </div>
-            <input type="submit" class="btn btn-primary" ng-click="searchGeek()" value="Submit" />
+            <input type="submit" class="btn btn-primary" ng-click="searchGeeks()" value="Submit" />
+            
+            <div class="form-group">
+            	<div ng-repeat="item in mygeeks">
+            		<h2>
+            			{{item.name}}
+            		</h2>
+            		<p>
+            			{{item.sexe}}
+            		</p >
+            		<div ng-repeat="interet in item.interets">
+            			<h3>
+            				{{interet.libelle}}
+            			</h3>
+            			<p>
+            				{{interet.description}}
+            			</p>
+            		</div>
+            	</div>
+            </div>
         </form>
 
         <script src="/js/angular.js"></script>

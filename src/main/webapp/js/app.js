@@ -8,9 +8,11 @@ app.controller('HelloCtrl', function($scope, $http) {
 
 app.controller('SearchCtrl',function($scope,$http) {
 	
-    $scope.interets = ['...'];
-    
-    $scope.geeks = ['...'];
+    $scope.interets = undefined;
+    $scope.mygeek = undefined;
+    $scope.mygeeks = undefined;
+    $scope.filterInteret = undefined;
+    $scope.filterSexe = undefined;
     
     $scope.initGeeks = function() {
     	$http.get('search/initGeeks')
@@ -26,10 +28,14 @@ app.controller('SearchCtrl',function($scope,$http) {
         });
     };
     
+    $scope.searchGeeks = function(){
+    	$http.post('search/searchGeeks',$scope.mygeek)
+    	.then(function(response){
+    		$scope.mygeeks = response.data;
+    	});
+    };
+    
     $scope.initInterets();
-    for(var i =0;i<1;i++){
-    	console.log($scope.interets[i])
-    }
     $scope.initGeeks();
 	
 });

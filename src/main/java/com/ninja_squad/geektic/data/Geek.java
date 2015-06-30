@@ -27,5 +27,25 @@ public class Geek {
 			joinColumns = @JoinColumn(name="ID_GEEK"),
 			inverseJoinColumns = @JoinColumn(name = "ID_INTERET"))
 	private Set<Interet> interets;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public long getId_geek() {
+		return id_geek;
+	}
+
+	public char getSexe() {
+		return sexe;
+	}
+
+	public Set<Interet> getInterets() {
+		return interets;
+	}
 	
 }

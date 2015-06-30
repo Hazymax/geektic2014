@@ -1,7 +1,10 @@
 package com.ninja_squad.geektic.controleur;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -39,4 +42,20 @@ public class SearchController {
         return interetService.findAllInteret();
     }
 
+    @RequestMapping(method = RequestMethod.POST, value="/searchGeeks")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Geek> searchGeeks(@RequestBody Geek geek){
+    	List<Geek> liste = geeks();
+    	List<Geek> geeksFind = new ArrayList<>();
+    	for(Geek geekIteration : liste){
+    		if (geekIteration.getInterets().contains(geek.getInterets()) && geekIteration.getSexe() == geek.getSexe()){
+    			geeksFind.add(geekIteration);
+    		}
+    	}
+    	return geeksFind;
+    }
+    
+    
+    
+    
 }
