@@ -1,5 +1,6 @@
 package com.ninja_squad.geektic.data;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -20,7 +21,7 @@ public class Geek {
 	
 	private String name;
 	
-	private char sexe;
+	private String sexe;
 
 	@ManyToMany
 	@JoinTable(name = "GEEK_INTERET",
@@ -40,7 +41,7 @@ public class Geek {
 		return id_geek;
 	}
 
-	public char getSexe() {
+	public String getSexe() {
 		return sexe;
 	}
 
@@ -48,4 +49,11 @@ public class Geek {
 		return interets;
 	}
 	
+	public Set<String> getInteretsString(){
+		Set<String> liste = new HashSet<String>() ;
+		for(Interet interet : interets){
+			liste.add(interet.getLibelle());
+		}
+		return liste;
+	}
 }

@@ -2,11 +2,10 @@ package com.ninja_squad.geektic.controleur;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,20 +41,18 @@ public class SearchController {
         return interetService.findAllInteret();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value="/searchGeeks")
+    @RequestMapping(method = RequestMethod.GET, value="/searchGeeks")
     @ResponseStatus(HttpStatus.OK)
-    public List<Geek> searchGeeks(@RequestBody Geek geek){
+    public List<Geek> searchGeeks(@RequestParam("sexeToSearch") String sexe,@RequestParam("interetToSearch") String interet){
     	List<Geek> liste = geeks();
     	List<Geek> geeksFind = new ArrayList<>();
     	for(Geek geekIteration : liste){
-    		if (geekIteration.getInterets().contains(geek.getInterets()) && geekIteration.getSexe() == geek.getSexe()){
+    		if (geekIteration.getInteretsString().contains(interet) && geekIteration.getSexe().equals(sexe)){
     			geeksFind.add(geekIteration);
     		}
     	}
+    	System.out.println("\n \n \n LISTE<Geek>.SIZE = " + geeksFind.size() + "\n \n \n");
     	return geeksFind;
     }
-    
-    
-    
     
 }

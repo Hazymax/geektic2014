@@ -10,9 +10,8 @@ app.controller('SearchCtrl',function($scope,$http) {
 	
     $scope.interets = undefined;
     $scope.mygeek = undefined;
-    $scope.mygeeks = undefined;
-    $scope.filterInteret = undefined;
-    $scope.filterSexe = undefined;
+    $scope.interetToSearch = undefined;
+    $scope.sexeToSearch = undefined;
     
     $scope.initGeeks = function() {
     	$http.get('search/initGeeks')
@@ -29,8 +28,8 @@ app.controller('SearchCtrl',function($scope,$http) {
     };
     
     $scope.searchGeeks = function(){
-    	$http.post('search/searchGeeks',$scope.mygeek)
-    	.then(function(response){
+    	$http.get('search/searchGeeks',{params:{"interetToSearch": $scope.interetToSearch,"sexeToSearch" : $scope.sexeToSearch}})
+    	.success(function(response){
     		$scope.mygeeks = response.data;
     	});
     };
