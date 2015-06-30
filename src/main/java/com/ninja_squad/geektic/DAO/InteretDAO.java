@@ -28,7 +28,9 @@ public class InteretDAO {
 	public List<Interet> findAll() {
     	String jpql = "select v from Interet as v";
     	TypedQuery<Interet> query = entityManager.createQuery(jpql, Interet.class);
-    	return query.getResultList();
+    	List<Interet> liste =query.getResultList() ;
+    	System.out.println("\n \n \n LISTE<Interet>.SIZE = " + liste.size() + "\n \n \n");
+    	return liste;
 	}
 
 }

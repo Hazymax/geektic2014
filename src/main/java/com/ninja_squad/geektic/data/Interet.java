@@ -20,6 +20,22 @@ public class Interet {
 	
 	private String libelle;
 	
+	public long getId_interet() {
+		return id_interet;
+	}
+
+	public String getLibelle() {
+		return libelle;
+	}
+
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
+	}
+
+	public Set<Geek> getGeeks() {
+		return geeks;
+	}
+
 	@ManyToMany(mappedBy = "interets")
 	private Set<Geek> geeks;
 	
