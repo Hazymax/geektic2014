@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import com.ninja_squad.geektic.data.Geek;
 import com.ninja_squad.geektic.data.Interet;
 import com.ninja_squad.geektic.service.GeekService;
+import com.ninja_squad.geektic.service.InteretService;
 
 @RestController
 @RequestMapping("/search")

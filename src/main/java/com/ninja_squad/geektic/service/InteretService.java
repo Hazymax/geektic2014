@@ -1,4 +1,4 @@
-package com.ninja_squad.geektic.controleur;
+package com.ninja_squad.geektic.service;
 
 import java.util.List;
 

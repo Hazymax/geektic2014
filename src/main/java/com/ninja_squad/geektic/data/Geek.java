@@ -25,7 +25,7 @@ public class Geek {
 	@ManyToMany
 	@JoinTable(name = "GEEK_INTERET",
 			joinColumns = @JoinColumn(name="ID_GEEK"),
-			inverseJoinColumns = @JoinColumn(name = "LIBELLE"))
+			inverseJoinColumns = @JoinColumn(name = "ID_INTERET"))
 	private Set<Interet> interets;
 	
 }
