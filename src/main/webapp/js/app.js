@@ -29,7 +29,7 @@ app.controller('SearchCtrl',function($scope,$http) {
     
     $scope.searchGeeks = function(){
     	$http.get('search/searchGeeks',{params:{"interetToSearch": $scope.interetToSearch,"sexeToSearch" : $scope.sexeToSearch}})
-    	.success(function(response){
+    	.then(function(response){
     		$scope.mygeeks = response.data;
     	});
     };

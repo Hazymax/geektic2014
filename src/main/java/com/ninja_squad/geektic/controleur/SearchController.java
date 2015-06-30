@@ -47,9 +47,9 @@ public class SearchController {
     	List<Geek> liste = geeks();
     	List<Geek> geeksFind = new ArrayList<>();
     	for(Geek geekIteration : liste){
-    		if (geekIteration.getInteretsString().contains(interet) && geekIteration.getSexe().equals(sexe)){
+    		if(geekIteration.getSexe().trim().equals(sexe.trim()) && geekIteration.getInteretsString().contains(interet))
     			geeksFind.add(geekIteration);
-    		}
+    		
     	}
     	System.out.println("\n \n \n LISTE<Geek>.SIZE = " + geeksFind.size() + "\n \n \n");
     	return geeksFind;
